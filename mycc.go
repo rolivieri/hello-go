@@ -30,13 +30,6 @@ func (t *SampleChaincode) Init(stub shim.ChaincodeStubInterface) peer.Response {
     return shim.Success(nil)
 }
 
-// Query method is invoked wheneber any read/get operation is performed on the blockchain state. This method does not
-// run within a transactional context since it does not change the state of the blockchain. Invocations of this method are 
-// not recorded in the blockchain.
-// func (t *SampleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-//     return nil, nil
-// }
-
 // Invoke method is invoked whenever the state of the blockchain is to be modified: all create, update, delete operations should
 // be encapsulated withim this method. All invocations of this method are recorded in the blockchain as transactions. 
 func (t *SampleChaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
