@@ -20,6 +20,8 @@ func (t *SampleChaincode) Init(stub shim.ChaincodeStubInterface) peer.Response {
         return shim.Error("Incorrect arguments. Expecting a key and a value!")
     }
 
+    fmt.Println("args[0]: %s, args[1]: %s", args[0], args[1])
+
     // Set up any variables or assets here by calling stub.PutState()
     // We store the key and the value on the ledger
     err := stub.PutState(args[0], []byte(args[1]))
@@ -85,6 +87,10 @@ func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 }
  
 func main() {
+    fmt.Println("In main() method...")
+    // Set logging level at the shim level
+    logLevel, _ := shim.LogLevel("DEBUG")
+    shim.SetLoggingLevel(logLevel)
     // Register the chaincode with the peer
     // Think of the chaincode as the entity (in this case, SampleChaincode) that conforms to the interface that implements Init, Query, and Invoke...
     // The implementation of these methods is required by the shim.Chaincode interface.
