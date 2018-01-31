@@ -23,15 +23,20 @@ func TestCreateNewUser(t *testing.T) {
 	fmt.Println(mockStub)
 	// testStub := TestAPIStub{data: make(map[string][]byte)}
 	txId := "mockTxID"
-	internalId := "id"
+	internalId := "00001"
 	firstName := "John"
+
+	// args := []string {
+	// 	internalId,
+	// 	firstName,
+	// 	"Doe",
+	// 	"john.doek@somewhere.com",
+	// }
 
 	args := []string {
 		internalId,
 		firstName,
-		"Doe",
-		"john.doek@somewhere.com",
-	 }
+	}
 
 	 // ACT
 	 mockStub.MockTransactionStart(txId)
@@ -43,7 +48,15 @@ func TestCreateNewUser(t *testing.T) {
 	   t.Errorf("The response status is %d, instead of 200", s)
 	   t.Errorf("The message: %s", response.Message)
 	}
- 
+
+	something := mockStub.State[internalId]
+	fmt.Println("something")
+	fmt.Println(something)
+	fmt.Println("something")
+
+	s := string(something[:])
+	fmt.Println(s)
+
 	//TODO
 	// var user User
 	// var found bool

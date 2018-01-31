@@ -8,6 +8,12 @@ import (
     "github.com/hyperledger/fabric/protos/peer"
 )
 
+type User struct {
+  Firstname string `json:"firstname"`
+  Lastname  string `json:"lastname"`
+  Email     string `json:"email"`
+}
+
 // SimpleAsset implements a simple chaincode to manage an asset
 type SimpleAsset struct {
 }
@@ -36,6 +42,7 @@ func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
 // either a 'get' or a 'set' on the asset created by Init function. The Set
 // method may create a new asset by specifying a new key-value pair.
 func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+    fmt.Println("In Invoke() method...")
     // Extract the function and args from the transaction proposal
     fn, args := stub.GetFunctionAndParameters()
 
@@ -87,6 +94,11 @@ func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 func (t *SimpleAsset) createUser(stub shim.ChaincodeStubInterface, args []string) peer.Response {
     fmt.Println("In CreateUser() method...")
     //TODO
+    err := stub.PutState(args[0], []byte(args[1]))
+    if err != nil {
+        fmt.Errorf("Failed to set asset: %s", args[0])
+        return shim.Error(err.Error())
+    }
     return shim.Success(nil)
 }
 
