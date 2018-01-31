@@ -4,7 +4,6 @@ package main
 
 import (
     "fmt"
-
     "github.com/hyperledger/fabric/core/chaincode/shim"
     "github.com/hyperledger/fabric/protos/peer"
 )
@@ -83,6 +82,12 @@ func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
             return "", fmt.Errorf("Asset not found: %s", args[0])
     }
     return string(value), nil
+}
+
+func (t *SimpleAsset) createUser(stub shim.ChaincodeStubInterface, args []string) peer.Response {
+    fmt.Println("In CreateUser() method...")
+    //TODO
+    return shim.Success(nil)
 }
 
 // main function starts up the chaincode in the container during instantiate
