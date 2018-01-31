@@ -49,13 +49,9 @@ func TestCreateNewUser(t *testing.T) {
 	   t.Errorf("The message: %s", response.Message)
 	}
 
-	something := mockStub.State[internalId]
-	fmt.Println("something")
-	fmt.Println(something)
-	fmt.Println("something")
-
-	s := string(something[:])
-	fmt.Println(s)
+	byteArray := mockStub.State[internalId]
+	fName := string(byteArray[:])
+	assert.Equal(t, firstName, fName, "The two first names should be the same.")
 
 	//TODO
 	// var user User

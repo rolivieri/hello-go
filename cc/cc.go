@@ -78,7 +78,7 @@ func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 // Get returns the value of the specified asset key
 func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
     if len(args) != 1 {
-            return "", fmt.Errorf("Incorrect arguments. Expecting a key")
+            return "", fmt.Errorf("Incorrect arguments. Expecting a key.")
     }
 
     value, err := stub.GetState(args[0])
