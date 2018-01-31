@@ -1,5 +1,7 @@
 package main
 
+// go build --tags nopkcs11 
+
 import (
     "fmt"
 

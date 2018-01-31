@@ -1,15 +1,14 @@
+// To create an executable, it looks like the name of the package needs to be main?
 package main
 
 // This is a comment
 // To compile, you can simply use: go build
 // In such case, the name of the executable corresponds to the name of the folder that contains the GO code.
 // If you plan to have multiple executables, then you can instead do: go build <name of go file>.
-// For instance, go build main.go (in such cases, the name of the executable has the same name of the file you compile).
+// For instance, go build simple.go (in such cases, the name of the executable has the same name of the file you compiled).
 
 import (
     "fmt"
-   // "github.com/hyperledger/fabric/core/chaincode/shim"
-   // "github.com/hyperledger/fabric/protos/peer"
 )
 
 // Define a struct named SimpleAsset
@@ -32,7 +31,3 @@ func (t *SimpleAsset) test() {
 func test() {
 	fmt.Println("In test()")
 }
-
-// func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
-
-// }

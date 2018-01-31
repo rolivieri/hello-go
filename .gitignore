@@ -1,3 +1,4 @@
-cc
-main
-mycc
+./cc/cc
+./mycc/mycc
+./simple/simple
+ 
