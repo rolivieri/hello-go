@@ -1,19 +1,21 @@
 package main
 
 // Reference: https://medium.com/wearetheledger/about-smart-contract-testing-fbf7b576bb9f
+// go test --tags nopkcs11
 
 import (
 	"fmt"
-    "testing"
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	// "encoding/json"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
-func TestXYZ (t *testing.T) {
-    var a string = "Hello"
-    var b string = "Hello"  
-    assert.Equal(t, a, b, "The two words should be the same.")
+func TestXYZ(t *testing.T) {
+	var a string = "Hello"
+	var b string = "Hello"
+	assert.Equal(t, a, b, "The two words should be the same.")
 }
 
 func TestCreateNewUser(t *testing.T) {
@@ -33,20 +35,20 @@ func TestCreateNewUser(t *testing.T) {
 	// 	"john.doek@somewhere.com",
 	// }
 
-	args := []string {
+	args := []string{
 		internalId,
 		firstName,
 	}
 
-	 // ACT
-	 mockStub.MockTransactionStart(txId)
-	 response := simpleAsset.createUser(mockStub, args)
-	 mockStub.MockTransactionEnd(txId)
+	// ACT
+	mockStub.MockTransactionStart(txId)
+	response := simpleAsset.createUser(mockStub, args)
+	mockStub.MockTransactionEnd(txId)
 
 	// ASSERT
 	if s := response.GetStatus(); s != 200 {
-	   t.Errorf("The response status is %d, instead of 200", s)
-	   t.Errorf("The message: %s", response.Message)
+		t.Errorf("The response status is %d, instead of 200", s)
+		t.Errorf("The message: %s", response.Message)
 	}
 
 	byteArray := mockStub.State[internalId]
@@ -59,4 +61,4 @@ func TestCreateNewUser(t *testing.T) {
 	// json.Unmarshal(mockStub.State[internalId], &user)
 	// // Now you can assert properties of the user object you stored.
 	// // ...
- }
+}
