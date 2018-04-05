@@ -8,7 +8,7 @@ package main
 // For instance, go build simple.go (in such cases, the name of the executable has the same name of the file you compiled).
 
 import (
-    "fmt"
+	"fmt"
 )
 
 // Define a struct named SimpleAsset
@@ -22,6 +22,30 @@ func main() {
 	// See how you can create a new instance of the SimpleAsset struct
 	asset := new(SimpleAsset)
 	asset.test()
+
+	//switch cases
+	i := 2
+	fmt.Print("Write ", i, " as ")
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	}
+
+	str := "ricardo"
+	fmt.Print("Write ", str, " as ")
+	switch str {
+	case "ricardo":
+		fmt.Println("r")
+	case "jen":
+		fmt.Println("j")
+	case "katy":
+		fmt.Println("k")
+	}
+
 }
 
 func (t *SimpleAsset) test() {
