@@ -1,6 +1,8 @@
 package main
 
 // Reference: https://medium.com/wearetheledger/about-smart-contract-testing-fbf7b576bb9f
+// go get github.com/stretchr/testify/assert
+// go get -u --tags nopkcs11 github.com/hyperledger/fabric/core/chaincode/shim
 // go test --tags nopkcs11
 
 import (
