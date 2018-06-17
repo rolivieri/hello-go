@@ -43,10 +43,13 @@ func myReflect(ptr interface{}) interface{} {
 	fmt.Println("Hello World: " + myUser.Firstname)
 
 	//var users []User
-	users := make([]User, 0)
-	sliceType := reflect.TypeOf(users)
+
+	//users := make([]User, 0)
+	//sliceType := reflect.TypeOf(users)
 	//var counties []commonLib.County
-	userSliceReflect := reflect.MakeSlice(sliceType, 0, 0)
+	//userSliceReflect := reflect.MakeSlice(sliceType, 0, 0)
+	userSliceReflect := reflect.MakeSlice(reflect.SliceOf(fType), 0, 0)
+
 	a := reflect.ValueOf(myUser)
 	userSliceReflect = reflect.Append(userSliceReflect, a)
 	//fmt.Println("Hello World: " + userSliceReflect)
